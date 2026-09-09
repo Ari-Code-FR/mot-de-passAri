@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="Argon2id.min.js"></script>
+    <script src="script.js"></script>
+
+    <title>Mot De PassAri</title>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <tr>
+          <td colspan="2"><h1 >Gestionnaire de Mot de PassAri</h1></h1>
+        </tr>
+
+        <tr>
+          <td><label for="mainPassword">Mot de passe principal</label></td>
+          <td><input type="text" id="mainPassword"></td>
+        </tr>
+        <tr>
+          <td><label for="site">Site/identifiant</label></td>
+          <td><input type="text" id="site" placeholder="gmail.com, steam, abc..."></td>
+        </tr>
+        <tr>
+          <td><label for="version">Version</label></td>
+          <td><input type="number" id="version" value="0"></td>
+        </tr>
+        <tr>
+          <td colspan="2"><button onclick="GeneratePassword()">Obtenir</button></td>
+        </tr>
+        <tr>
+          <td><input type="text" id="output" placeholder="Mot de passe généré"></td>
+          <td><button onclick="CopyToClipboard()">Copier mot de passe</button></td>
+
+        </tr>
+          <td colspan="2">
+            <p>Ce site est un gestionnaire de mot de passe qui ne stocke pas vos mots de passe.</p>
+
+            <h2>Comment l'utiliser ?</h2>
+            <p>Pour définir un mot de passe, il faut :</p>
+            <ol>
+              <li>Utiliser un mot de passe principal. 
+                Il est recommander d'utiliser un long mot de passe qui est facilement remémorable, 
+                par exemple en utilisant une phrase.</li>
+              
+              <li>Remplir le champ site/identifiant. Il s'agit de l'endroit où vous utilisez ce mot de passe (généralement, le site web). 
+                Cela permet d'avoir un mot de passe différent par site.
+                Cette information doit être simple, car vous en aurez besoin pour récupérer votre mot de passe.
+              </li>
+              
+              <li>Vous pouvez changer la version, si le mot de passe a été compromis, ou si vous souhaitiez avoir un second mot de passe.</li>
+            </ol>
+            <p>Pour récuperer un mot de passe, il suffit d'entrer le même mot de passe principal, le même site/identifiant et la même version.</p>
+            <p><b>ATTENTION</b> : Si vous perdez votre mot de passe principal ou l'identifiant d'un site, il est impossible de retrouver le mot de passe de ce site</p>
+
+            <h2>Qu'est ce qu'est un gestionnaire de mot de passe ?</h2>
+            <p>Le but d'un gestionnaire de mot de passe est de stocker et protéger tous vos mot de passe.</p>
+
+              <h3>Pourquoi utiliser un gestionnaire de mot de passe ?</h3>
+            <p>
+              Il est généralement conseillé d'avoir un mot de passe pour chaque site, comme ça, 
+              si un site utilisant votre mot de passe s'est fait hacké, 
+              les autres site ne sont pas compromis car vous utilisez un mot de pase différent.
+            </p>
+
+            <h3>Pourquoi utiliser ce gestionnaire de mot de passe ?</h3>
+            <p>Au lieu de stocker les mots de passe sur un appareil ou sur un serveur, 
+              celui-ci génére vos mots de passe a l'aide d'une fonction de hachage (argon2id), qui est asymétrique,
+              c'est à dire qu'il est impossible de retrouver le mot de passe principal à l'aide d'un mot de passe généré avec cette fonction.
+            </p>
+            <p>Ce gestionnaire est utilisable sur n'importe quelle appareil, car chaque mot de passe est généré grâce au mot de passe principal.</p>
+            <p><b>
+              Toutes les données sont traitées sur votre appareil et rien n'est enregistré, ni envoyé à un tier.
+            </p></b>
+          
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
