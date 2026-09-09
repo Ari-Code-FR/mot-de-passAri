@@ -17,7 +17,7 @@ function GeneratePassword() {
     if (!mainPassword || !site || !version) return Display(FIELD_ERROR)
 
     mainPassword = mainPassword.trim()
-    site = site.trim()
+    site = site.trim().toLowerCase()
     version = version.trim()
 
     if (mainPassword === "" || site === "" || version === "") return Display(FIELD_ERROR)
@@ -25,7 +25,7 @@ function GeneratePassword() {
 
     var message = mainPassword + site + version
     // Hash password
-    
+
     Argon2id.hash(message, SALT, 10, 16, 3, 12).then(hash => {
         var outputPassword = HexToPassword(hash)
         Display(outputPassword)
